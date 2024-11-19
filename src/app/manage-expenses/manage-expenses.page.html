@@ -8,7 +8,8 @@
   <ion-card>
     <ion-card-header>
       <ion-card-title>Expense List Details</ion-card-title>
-      <ion-card-subtitle>This page displays the percentages occupied by each expense in relation to the total sum.</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="expenses.length === 0">This page displays the percentages occupied by each expense in relation to the total sum. Here you can also delete the expenses.</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="expenses.length > 0">Total expenses: ${{ totalExpenses }} -> 100%</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <!-- Scrollable container around the ion-list -->
@@ -31,6 +32,10 @@
                 <ion-icon aria-hidden="true" name="trash-outline" class="custom-icon"></ion-icon>
               </ion-button>
             </div>
+          </ion-item>
+
+          <ion-item *ngIf="expenses.length === 0" style="text-align: center; color: red;">
+              Add expenses to view these details
           </ion-item>
         </ion-list>
       </div>

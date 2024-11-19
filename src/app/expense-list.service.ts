@@ -16,7 +16,7 @@ export class ExpenseListService {
   public updateList: Subject<void> = new Subject<void>();
   private sum = 0;
   DIRECTORY = Directory.Documents;
-  FILE_PATH = 'expenses/expenseFilee.json';
+  FILE_PATH = 'expenses/expenseFile.json';
 
   constructor() {
     this.initializeFile();

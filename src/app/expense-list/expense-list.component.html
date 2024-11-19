@@ -2,7 +2,8 @@
   <ion-card>
     <ion-card-header>
       <ion-card-title>Expense List</ion-card-title>
-      <ion-card-subtitle>Total expenses: ${{ totalExpenses }}</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="expenses.length > 0">Total expenses: ${{ totalExpenses }}</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="expenses.length === 0">Add expenses to view them here</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <!-- Scrollable container around the ion-list -->
