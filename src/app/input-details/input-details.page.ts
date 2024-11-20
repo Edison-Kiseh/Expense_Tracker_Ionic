@@ -25,7 +25,7 @@ export class InputDetailsPage{
   categoryName: string = '';
   color: string = '';
   selectedColor: string = '';
-
+  selectedColorText: string = '';
 
   constructor(private router: Router, private fb: FormBuilder, private colourService: ColorPickerService, private listService: ExpenseListService, private modalController: ModalController) {
     this.inputForm = this.fb.group({
@@ -65,7 +65,8 @@ export class InputDetailsPage{
     this.color = '';
     this.showColorPicker = false;
     this.buttonText = 'Choose Color';
-    this.selectedColor = 'No color selected'
+    this.selectedColor = '';
+    this.selectedColorText = 'No colour selected';
   }
 
   //opening the color picker
@@ -83,6 +84,7 @@ export class InputDetailsPage{
       const { data } = await modal.onDidDismiss();
       if (data && data.selectedColor) {
         this.selectedColor = data.selectedColor;
+        this.selectedColorText = this.selectedColor;
         // this.buttonText = `Color: ${data.selectedColor}`; //Updating button text
         this.colourService.setColour(data.selectedColor); //store the color
       }
